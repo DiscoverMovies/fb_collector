@@ -15,39 +15,39 @@ class database:
         sql = 'USE FB_DATA'
         cur.execute(sql)
 
-        sql = 'CREATE TABLE IF NOT EXISTS USER(ID NUMERIC(25) PRIMARY KEY,' \
+        sql = 'CREATE TABLE IF NOT EXISTS USER(ID NUMERIC(70) PRIMARY KEY,' \
               'NAME CHAR(25) NOT NULL,' \
               'LOCATION CHAR(40),' \
               'GENDER CHAR(10) NOT NULL,' \
               'BIRTHDAY DATE)'
         cur.execute(sql)
 
-        sql = 'CREATE TABLE IF NOT EXISTS MOVIES(MID NUMERIC(40) PRIMARY KEY,' \
+        sql = 'CREATE TABLE IF NOT EXISTS MOVIES(MID NUMERIC(100) PRIMARY KEY,' \
               'MNAME CHAR(25) NOT NULL)'
         cur.execute(sql)
 
-        sql = 'CREATE TABLE IF NOT EXISTS MUSIC(SID NUMERIC(40) PRIMARY KEY,' \
+        sql = 'CREATE TABLE IF NOT EXISTS MUSIC(SID NUMERIC(100) PRIMARY KEY,' \
               'SNAME CHAR(25) NOT NULL)'
         cur.execute(sql)
 
-        sql = 'CREATE TABLE IF NOT EXISTS LIKES(LID NUMERIC(40) PRIMARY KEY,' \
+        sql = 'CREATE TABLE IF NOT EXISTS LIKES(LID NUMERIC(100) PRIMARY KEY,' \
               'LNAME CHAR(25) NOT NULL)'
         cur.execute(sql)
 
-        sql = 'CREATE TABLE IF NOT EXISTS INTERESTEDMOVIES(ID NUMERIC(40),' \
-              'MID NUMERIC(40),' \
+        sql = 'CREATE TABLE IF NOT EXISTS INTERESTEDMOVIES(ID NUMERIC(70),' \
+              'MID NUMERIC(100),' \
               'FOREIGN KEY(MID) REFERENCES MOVIES(MID),' \
               'PRIMARY KEY(ID,MID))'
         cur.execute(sql)
 
-        sql = 'CREATE TABLE IF NOT EXISTS INTERESTEDMUSIC(ID NUMERIC(40),' \
-              'SID NUMERIC(40),' \
+        sql = 'CREATE TABLE IF NOT EXISTS INTERESTEDMUSIC(ID NUMERIC(70),' \
+              'SID NUMERIC(100),' \
               'FOREIGN KEY(SID) REFERENCES MUSIC(SID),' \
               'PRIMARY KEY(ID,SID))'
         cur.execute(sql)
 
-        sql = 'CREATE TABLE IF NOT EXISTS LIKEDPAGES(ID NUMERIC(40),' \
-              'LID NUMERIC(40),' \
+        sql = 'CREATE TABLE IF NOT EXISTS LIKEDPAGES(ID NUMERIC(70),' \
+              'LID NUMERIC(100),' \
               'FOREIGN KEY(LID) REFERENCES LIKES(LID),' \
               'PRIMARY KEY(ID,LID))'
 
