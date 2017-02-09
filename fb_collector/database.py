@@ -53,8 +53,8 @@ class database:
 
         cur.execute(sql)
 
-    def Insert_User(id, name, location, gender, root, facebook):
-        db = pymysql.connect(host='localhost', user=root, password=facebook)
+    def Insert_User(self,id, name, location, gender):
+        db = pymysql.connect(host='localhost', user=self.username, password=self.password)
         cur = db.cursor()
         sql = 'USE FB_DATA'
         cur.execute(sql)
